@@ -1,2 +1,10 @@
 server:
   port : 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/videonotes
+    username: postgres
+    password: 123
+  jpa:
+    generate-ddl: true
