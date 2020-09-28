@@ -7,7 +7,6 @@
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>2.3.4.RELEASE</version>
-    <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>org.neustupov</groupId>
   <artifactId>videonotes</artifactId>
@@ -31,6 +30,7 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
+      <version>2.2.5.RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.postgresql</groupId>
