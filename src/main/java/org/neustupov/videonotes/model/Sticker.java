@@ -2,8 +2,9 @@ package org.neustupov.videonotes.model;
 
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,10 +13,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "\"User\"")
-public class User extends BaseModel{
+public class Sticker extends BaseModel{
 
   private String name;
   @OneToMany
   private List<Note> notes;
+  @ManyToMany
+  private List<Video> videos;
+  @ManyToOne
+  private Board board;
 }

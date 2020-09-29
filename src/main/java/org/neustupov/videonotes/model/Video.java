@@ -1,7 +1,8 @@
 package org.neustupov.videonotes.model;
 
+import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +13,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Video extends BaseModel{
 
-  @ManyToOne
-  private Note note;
+  @ManyToMany
+  private List<Note> note;
+  @ManyToMany
+  private List<Sticker> sticker;
 }
