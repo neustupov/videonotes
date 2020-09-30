@@ -10,7 +10,7 @@ export default new Router({
       path: "/",
       alias: "/boards",
       name: "boards",
-      component: () => import("./components/BoardsList")
+      component: () => import("./components/Boards")
     },
     {
       path: "/boards/:id",
@@ -18,9 +18,19 @@ export default new Router({
       component: () => import("./components/Board")
     },
     {
+      path: "/boards/:id/stickers",
+      name: "stickers",
+      component: () => import("./components/Stickers")
+    },
+    {
       path: "/add",
       name: "add",
       component: () => import("./components/AddBoard")
+    },
+    {
+      path: "/addSticker",
+      name: "addSticker",
+      component: () => import("./components/AddSticker")
     }
   ]
 });

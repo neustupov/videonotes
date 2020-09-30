@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.neustupov.videonotes.model.Board;
+import org.neustupov.videonotes.model.Sticker;
 import org.neustupov.videonotes.repo.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -53,10 +54,17 @@ public class BoardController {
 
   @GetMapping("/boards/{id}")
   public ResponseEntity<Board> getBoardById(@PathVariable("id") long id) {
-    Optional<Board> tutorialData = boardRepository.findById(id);
+    Optional<Board> boardData = boardRepository.findById(id);
 
-    return tutorialData.map(board -> new ResponseEntity<>(board, HttpStatus.OK))
+    return boardData.map(board -> new ResponseEntity<>(board, HttpStatus.OK))
         .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+  }
+
+  @GetMapping("/boards/{id}/stickers")
+  public ResponseEntity<List<Sticker>> getBoardTickets(@PathVariable("id") long id){
+    Optional<Board> boardData = boardRepository.findById(id);
+    List<Sticker> stickers = boardData.orElse(new Board()).getStickers();
+    return stickers.isEmpty() ? new ResponseEntity<>(HttpStatus.NOT_FOUND) : new ResponseEntity<>(stickers, HttpStatus.OK);
   }
 
   @PostMapping("/boards")

@@ -38,9 +38,9 @@
         </div>
 
         <a class="badge badge-warning"
-           :href="'/boards/' + currentBoard.id"
+           :href="'/boards/' + currentBoard.id + '/stickers'"
         >
-          Edit
+          Open
         </a>
       </div>
       <div v-else>

@@ -7,7 +7,7 @@
           <a href="/boards" class="nav-link">Boards</a>
         </li>
         <li class="nav-item">
-          <a href="/add" class="nav-link">Add</a>
+          <a href="/add" class="nav-link">Add board</a>
         </li>
       </div>
     </nav>
