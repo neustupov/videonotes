@@ -15,7 +15,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Board extends BaseModel {
 
-  private String name;
+  private String title;
   @OneToMany
   private List<Sticker> stickers;
 }

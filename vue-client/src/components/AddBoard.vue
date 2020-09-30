@@ -1,14 +1,14 @@
 <template>
   <div class="submit-form">
       <div class="form-group">
-        <label for="name">Name</label>
+        <label for="title">Title</label>
         <input
             type="text"
             class="form-control"
-            id="name"
+            id="title"
             required
-            v-model="board.name"
-            name="name"
+            v-model="board.title"
+            name="title"
         />
       </div>
       <button @click="saveBoard" class="btn btn-success">Submit</button>
@@ -24,14 +24,14 @@
       return {
         board: {
           id: null,
-          name: ""
+          title: ""
         }
       };
     },
     methods: {
       saveBoard() {
         var data = {
-          name: this.board.name,
+          title: this.board.title,
         };
 
         BoardDataService.create(data)

@@ -15,7 +15,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Sticker extends BaseModel{
 
-  private String name;
+  private String title;
   @OneToMany
   private List<Note> notes;
   @ManyToMany
