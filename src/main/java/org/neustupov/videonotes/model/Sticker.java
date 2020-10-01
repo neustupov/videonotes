@@ -20,10 +20,13 @@ import lombok.Setter;
 public class Sticker extends BaseModel{
 
   private String title;
+
   @OneToMany
   private List<Note> notes;
+
   @ManyToMany
   private List<Video> videos;
+
   @ManyToOne(fetch = FetchType.LAZY)
   @JsonIgnoreProperties("stickers")
   private Board board;

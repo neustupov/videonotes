@@ -15,8 +15,10 @@ import lombok.Setter;
 public class Note extends BaseModel{
 
   private String description;
+
   @ManyToOne
   private User user;
+
   @ManyToMany
   private List<Video> videos;
 

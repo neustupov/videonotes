@@ -30,10 +30,12 @@
         </a>
       </div>
       <div v-else>
-        <br />
+        <br/>
         <p>Please click on a Sticker...</p>
       </div>
-      <div><button @click="fetchData">Refresh</button></div>
+      <div>
+        <button @click="fetchData">Refresh</button>
+      </div>
     </div>
   </div>
 </template>
@@ -43,7 +45,7 @@
   import AddSticker from "./AddSticker";
 
   export default {
-    components:{
+    components: {
       AddSticker
     },
     name: "stickers-list",
@@ -68,7 +70,7 @@
       },
 
       refreshList() {
-        this.retrieveStickers();
+        this.fetchData();
         this.currentSticker = null;
         this.currentIndex = -1;
       },
@@ -76,18 +78,13 @@
       setActiveSticker(sticker, index) {
         this.currentSticker = sticker;
         this.currentIndex = index;
-      },
-
-    mounted() {
-      console.log('Component Stickers has been mounted!');
-      this.retrieveStickers();
+      }
     },
 
-      created() {
-        this.fetchData();
-        console.log('Component AddSticker has been created!');
-      }
-  }}
+    mounted() {
+      this.fetchData();
+    }
+  }
 </script>
 
 <style>

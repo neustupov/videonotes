@@ -1,6 +1,5 @@
 package org.neustupov.videonotes.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -17,6 +16,7 @@ import lombok.Setter;
 public class Board extends BaseModel {
 
   private String title;
+
   @OneToMany(mappedBy = "board",
   cascade = CascadeType.ALL,
   orphanRemoval = true)
