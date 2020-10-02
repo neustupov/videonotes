@@ -1,7 +1,9 @@
 package org.neustupov.videonotes.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import lombok.Getter;
@@ -16,8 +18,9 @@ public class Note extends BaseModel{
 
   private String description;
 
-  @ManyToOne
-  private User user;
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JsonIgnoreProperties("notes")
+  private Sticker sticker;
 
   @ManyToMany
   private List<Video> videos;

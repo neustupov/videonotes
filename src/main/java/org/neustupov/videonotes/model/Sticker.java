@@ -2,6 +2,7 @@ package org.neustupov.videonotes.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
@@ -21,7 +22,9 @@ public class Sticker extends BaseModel{
 
   private String title;
 
-  @OneToMany
+  @OneToMany(mappedBy = "sticker",
+      cascade = CascadeType.ALL,
+      orphanRemoval = true)
   private List<Note> notes;
 
   @ManyToMany

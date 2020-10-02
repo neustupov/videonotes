@@ -6,11 +6,17 @@ Vue.use(Router);
 export default new Router({
   mode: "history",
   routes: [
-    {
+    /*{
       path: "/",
       alias: "/boards",
       name: "boards",
       component: () => import("./components/Boards")
+    },*/
+    {
+      path: "/",
+      alias: "/main",
+      name: "main",
+      component: () => import("./components/Main")
     },
     {
       path: "/boards/:id",

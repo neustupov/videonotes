@@ -18,8 +18,8 @@ public class Board extends BaseModel {
   private String title;
 
   @OneToMany(mappedBy = "board",
-  cascade = CascadeType.ALL,
-  orphanRemoval = true)
+      cascade = CascadeType.ALL,
+      orphanRemoval = true)
   private List<Sticker> stickers;
 
   public Board() {

@@ -1,6 +1,6 @@
 <template>
-  <div class="list row">
-    <div class="col-md-8">
+  <div class="list row justify-content-start">
+    <!--<div class="col-md-8">
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search by title"
                v-model="title"/>
@@ -12,11 +12,11 @@
           </button>
         </div>
       </div>
-    </div>
+    </div>-->
     <div class="col-md-6">
       <h4>Boards List</h4>
-      <ul class="list-group">
-        <li class="list-group-item"
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item shadow-lg m-1 p-3 mb-5 rounded"
             :class="{ active: index === currentIndex }"
             v-for="(board, index) in boards"
             :key="index"
@@ -26,11 +26,11 @@
         </li>
       </ul>
 
-      <button class="m-3 btn btn-sm btn-danger" @click="removeAllBoards">
+      <!--<button class="m-3 btn btn-sm btn-danger" @click="removeAllBoards">
         Remove All
-      </button>
+      </button>-->
     </div>
-    <div class="col-md-6">
+    <!--<div class="col-md-6">
       <div v-if="currentBoard">
         <h4>Board</h4>
         <div>
@@ -47,7 +47,7 @@
         <br />
         <p>Please click on a Board...</p>
       </div>
-    </div>
+    </div>-->
   </div>
 </template>
 
@@ -85,6 +85,9 @@
       setActiveBoard(board, index) {
         this.currentBoard = board;
         this.currentIndex = index;
+        this.$emit('set-current-board', {
+          board: board
+        });
       },
 
       removeAllBoards() {
