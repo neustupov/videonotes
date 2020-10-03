@@ -33,9 +33,6 @@
         <br/>
         <p>Please click on a Sticker...</p>
       </div>
-      <div>
-        <button @click="fetchData">Refresh</button>
-      </div>
     </div>
   </div>
 </template>
@@ -49,6 +46,7 @@
       AddSticker
     },
     name: "stickers-list",
+    props:['currentBoard'],
     data() {
       return {
         stickers: [],
@@ -59,7 +57,7 @@
     },
     methods: {
       fetchData() {
-        StickerDataService.getAll(this.$route.params.id)
+        StickerDataService.getAll(this.currentBoard.board.id)
         .then(response => {
           this.stickers = response.data;
           console.log(response.data);

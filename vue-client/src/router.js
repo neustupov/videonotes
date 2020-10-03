@@ -29,8 +29,8 @@ export default new Router({
       component: () => import("./components/Stickers")
     },
     {
-      path: "/add",
-      name: "add",
+      path: "/addBoard",
+      name: "addBoard",
       component: () => import("./components/AddBoard")
     },
     {

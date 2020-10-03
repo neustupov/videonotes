@@ -1,25 +1,29 @@
 <template>
   <div class="container">
-    <div class="row float-left">
-      <div class="col-md-auto align-self-center">
-        <div class="row justify-content-md-center">
-          <a href="/add" class="btn btn-outline-primary btn-sm m-1" role="button"
-             aria-pressed="true">Add board</a>
-        </div>
-        <div v-if="currentBoard">
-          <div class="row justify-content-md-center center-block">
-            <button href="#" type="button" class="btn btn-outline-primary btn-sm m-1">Edit board
-            </button>
+    <div class="container mt">
+      <div class="row">
+        <div class="col-md-auto align-self-center">
+          <div class="row justify-content-md-center">
+            <a href="/addBoard" class="btn btn-outline-primary btn-sm m-1" role="button"
+               aria-pressed="true">Add board</a>
+          </div>
+          <div v-if="currentBoard">
+            <div class="row justify-content-md-center">
+              <a href="/editBoard" class="btn btn-outline-primary btn-sm m-1" role="button"
+                 aria-pressed="true">Edit board</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col">
-        <Boards @set-current-board="setCurrentBoard"/>
+        <div class="col align-content-start">
+          <Boards @set-current-board="setCurrentBoard"/>
+        </div>
       </div>
     </div>
-    <div class="row float-left">
-      <div class="col-md-auto align-self-center">
-        <Stickers/>
+    <div class="container mt">
+      <div class="row">
+          <div v-if="currentBoard" class="col-md-auto align-self-center">
+          <Stickers :current-board='currentBoard'/>
+        </div>
       </div>
     </div>
   </div>
@@ -40,12 +44,8 @@
     methods: {
       setCurrentBoard(board) {
         this.currentBoard = board;
-        console.log(board)
       }
     }
   }
+
 </script>
-
-<style scoped>
-
-</style>
