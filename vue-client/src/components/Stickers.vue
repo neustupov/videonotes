@@ -46,18 +46,25 @@
       AddSticker
     },
     name: "stickers-list",
-    props:['currentBoard'],
+    props: ['currentBoard'],
+    watch: {
+      currentBoard: function (newVal, oldVal) {
+        console.log('Prop changed: ', newVal, ' | was: ', oldVal);
+        this.refreshList();
+      }
+    },
     data() {
       return {
         stickers: [],
         currentSticker: null,
         currentIndex: -1,
-        title: ""
+        title: "",
+        currentBoardId: this.currentBoard.board.id
       };
     },
     methods: {
       fetchData() {
-        StickerDataService.getAll(this.currentBoard.board.id)
+        StickerDataService.getAll(this.currentBoardId)
         .then(response => {
           this.stickers = response.data;
           console.log(response.data);

@@ -22,7 +22,7 @@
     <div class="container mt">
       <div class="row">
           <div v-if="currentBoard" class="col-md-auto align-self-center">
-          <Stickers :current-board='currentBoard'/>
+          <Stickers :current-board='currentBoard' />
         </div>
       </div>
     </div>
