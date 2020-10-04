@@ -16,6 +16,7 @@ import lombok.Setter;
 public class User extends BaseModel{
 
   private String name;
+
   @OneToMany
   private List<Note> notes;
 }

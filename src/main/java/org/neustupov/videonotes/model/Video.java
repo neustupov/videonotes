@@ -15,6 +15,7 @@ public class Video extends BaseModel{
 
   @ManyToMany
   private List<Note> note;
+
   @ManyToMany
   private List<Sticker> sticker;
 }

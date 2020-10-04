@@ -6,10 +6,37 @@ Vue.use(Router);
 export default new Router({
   mode: "history",
   routes: [
+    /*{
+      path: "/",
+      alias: "/boards",
+      name: "boards",
+      component: () => import("./components/Boards")
+    },*/
     {
-      path: "/add",
-      name: "add",
+      path: "/",
+      alias: "/main",
+      name: "main",
+      component: () => import("./components/Main")
+    },
+    {
+      path: "/boards/:id",
+      name: "board-details",
+      component: () => import("./components/Board")
+    },
+    {
+      path: "/boards/:id/stickers",
+      name: "stickers",
+      component: () => import("./components/Stickers")
+    },
+    {
+      path: "/addBoard",
+      name: "addBoard",
       component: () => import("./components/AddBoard")
+    },
+    {
+      path: "/addSticker",
+      name: "addSticker",
+      component: () => import("./components/AddSticker")
     }
   ]
 });
