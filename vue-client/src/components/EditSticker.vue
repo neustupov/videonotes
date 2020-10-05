@@ -7,36 +7,36 @@
           class="form-control"
           id="title"
           required
-          v-model="board.title"
+          v-model="sticker.title"
           name="title"
       />
     </div>
-    <button @click="editBoard" class="btn btn-success">Submit</button>
+    <button @click="editSticker" class="btn btn-success">Submit</button>
   </div>
 </template>
 
 <script>
-  import BoardDataService from "../services/BoardDataService";
+  import StickerDataService from "../services/StickerDataService";
 
   export default {
-    name: "edit-board",
+    name: "edit-Sticker",
     data() {
       return {
-        board: {
+        sticker: {
           id: null,
           title: ""
         }
       };
     },
     methods: {
-      editBoard() {
+      editSticker() {
         var data = {
-          title: this.board.title,
+          title: this.sticker.title,
         };
 
-        BoardDataService.update(this.$route.params.id, data)
+        StickerDataService.update(this.$route.params.id, data)
         .then(response => {
-          this.board.id = response.data.id;
+          this.sticker.id = response.data.id;
           console.log(response.data);
         })
         .catch(e => {
@@ -44,8 +44,8 @@
         });
       },
 
-      newBoard() {
-        this.board = {};
+      newSticker() {
+        this.sticker = {};
       }
     }
   };

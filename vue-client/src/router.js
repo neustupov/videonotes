@@ -34,9 +34,19 @@ export default new Router({
       component: () => import("./components/AddBoard")
     },
     {
-      path: "/addSticker",
+      path: "/editBoard/:id",
+      name: "editBoard",
+      component: () => import("./components/EditBoard")
+    },
+    {
+      path: "/addSticker/:id",
       name: "addSticker",
       component: () => import("./components/AddSticker")
+    },
+    {
+      path: "/editSticker/:id",
+      name: "editSticker",
+      component: () => import("./components/EditSticker")
     }
   ]
 });
