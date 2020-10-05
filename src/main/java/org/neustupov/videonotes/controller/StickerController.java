@@ -1,6 +1,5 @@
 package org.neustupov.videonotes.controller;
 
-import java.util.ArrayList;
 import java.util.Optional;
 import org.neustupov.videonotes.model.Sticker;
 import org.neustupov.videonotes.repo.StickerRepository;

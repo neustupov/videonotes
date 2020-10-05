@@ -47,6 +47,11 @@ export default new Router({
       path: "/editSticker/:id",
       name: "editSticker",
       component: () => import("./components/EditSticker")
+    },
+    {
+      path: "/addNotes/:id",
+      name: "addNotes",
+      component: () => import("./components/AddNote")
     }
   ]
 });

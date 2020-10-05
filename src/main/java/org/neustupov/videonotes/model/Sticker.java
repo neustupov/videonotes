@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -30,7 +29,7 @@ public class Sticker extends BaseModel{
   @ManyToMany
   private List<Video> videos;
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne
   @JsonIgnoreProperties("stickers")
   private Board board;
 }

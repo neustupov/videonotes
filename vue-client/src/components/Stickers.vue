@@ -7,10 +7,15 @@
              class="btn btn-outline-primary btn-sm m-1" role="button"
              aria-pressed="true">Edit sticker</a>
         </div>
+        <div class="row justify-content-md-center">
+          <a :href="'/addNotes/' + currentSticker.id"
+             class="btn btn-outline-primary btn-sm m-1" role="button"
+             aria-pressed="true">Add note</a>
+        </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <h4>Stickers List</h4>
+    <div class="col-md-auto align-self-center">
+      <h4>Stickers</h4>
       <div v-if="stickers">
         <ul class="list-group">
           <li class="list-group-item"
@@ -19,7 +24,16 @@
               :key="index"
               @click="setActiveSticker(sticker, index)"
           >
-            {{ sticker.title }}
+            <div class="card" style="width: 18rem;">
+              <div class="card-header">
+                {{ sticker.title }}
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">One</li>
+                <li class="list-group-item">Two</li>
+                <li class="list-group-item">Three</li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>

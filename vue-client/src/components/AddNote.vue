@@ -7,39 +7,38 @@
           class="form-control"
           id="title"
           required
-          v-model="sticker.title"
+          v-model="note.title"
           name="title"
       />
     </div>
-    <button @click="saveSticker" class="btn btn-success">Submit</button>
+    <button @click="saveNote" class="btn btn-success">Submit</button>
   </div>
 </template>
 
 <script>
-  import StickerDataService from "../services/StickerDataService";
+  import NoteDataService from "../services/NoteDataService";
 
   export default {
-    name: "add-sticker",
+    name: "add-note",
     data() {
       return {
-        sticker: {
+        note: {
           id: null,
           title: "",
-          notes: [],
-          board: null
+          stickerId: null
         }
       };
     },
     methods: {
-      saveSticker() {
+      saveNote() {
         var data = {
-          title: this.sticker.title,
-          boardId: this.$route.params.id
+          title: this.note.title,
+          stickerId: this.$route.params.id
         };
 
-        StickerDataService.create(data)
+        NoteDataService.create(data)
         .then(response => {
-          this.sticker.id = response.data.id;
+          this.note.id = response.data.id;
           console.log(response.data);
         })
         .catch(e => {
@@ -47,8 +46,8 @@
         });
       },
 
-      newSticker() {
-        this.sticker = {};
+      newNote() {
+        this.note = {};
       }
     }
   };
