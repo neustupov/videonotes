@@ -37,10 +37,11 @@ public class BoardController {
     try {
       List<Board> boards = new ArrayList<>();
 
-      if (title == null)
+      if (title == null) {
         boards.addAll(boardRepository.findAll());
-      else
+      } else {
         boards.addAll(boardRepository.findByTitleContaining(title));
+      }
 
       if (boards.isEmpty()) {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -61,10 +62,11 @@ public class BoardController {
   }
 
   @GetMapping("/boards/{id}/stickers")
-  public ResponseEntity<List<Sticker>> getBoardTickets(@PathVariable("id") long id){
+  public ResponseEntity<List<Sticker>> getBoardTickets(@PathVariable("id") long id) {
     Optional<Board> boardData = boardRepository.findById(id);
     List<Sticker> stickers = boardData.orElse(new Board()).getStickers();
-    return stickers.isEmpty() ? new ResponseEntity<>(HttpStatus.NOT_FOUND) : new ResponseEntity<>(stickers, HttpStatus.OK);
+    return stickers.isEmpty() ? new ResponseEntity<>(HttpStatus.NOT_FOUND)
+        : new ResponseEntity<>(stickers, HttpStatus.OK);
   }
 
   @PostMapping("/boards")
@@ -79,7 +81,8 @@ public class BoardController {
   }
 
   @PutMapping("/boards/{id}")
-  public ResponseEntity<Board> updateTutorial(@PathVariable("id") long id, @RequestBody Board board) {
+  public ResponseEntity<Board> updateBoard(@PathVariable("id") long id,
+      @RequestBody Board board) {
     Optional<Board> boardData = boardRepository.findById(id);
 
     if (boardData.isPresent()) {
@@ -92,7 +95,7 @@ public class BoardController {
   }
 
   @DeleteMapping("/boards/{id}")
-  public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") long id) {
+  public ResponseEntity<HttpStatus> deleteBoard(@PathVariable("id") long id) {
     try {
       boardRepository.deleteById(id);
       return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -102,7 +105,7 @@ public class BoardController {
   }
 
   @DeleteMapping("/boards")
-  public ResponseEntity<HttpStatus> deleteAllTutorials() {
+  public ResponseEntity<HttpStatus> deleteAllBoards() {
     try {
       boardRepository.deleteAll();
       return new ResponseEntity<>(HttpStatus.NO_CONTENT);
