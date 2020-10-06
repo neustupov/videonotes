@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import Notes from "./Notes";
+  import Notes from "../note/Notes";
 
   export default {
     name: "sticker",
@@ -34,38 +34,6 @@
       return {};
     },
     methods: {
-      /*getBoard(id) {
-        BoardDataService.get(id)
-        .then(response => {
-          this.currentBoard = response.data;
-          console.log(response.data);
-        })
-        .catch(e => {
-          console.log(e);
-        });
-      },
-
-      updateBoard() {
-        BoardDataService.update(this.currentBoard.id, this.currentBoard)
-        .then(response => {
-          console.log(response.data);
-          this.message = 'The board was updated successfully!';
-        })
-        .catch(e => {
-          console.log(e);
-        });
-      },
-
-      deleteBoard() {
-        BoardDataService.delete(this.currentBoard.id)
-        .then(response => {
-          console.log(response.data);
-          this.$router.push({ name: "tutorials" });
-        })
-        .catch(e => {
-          console.log(e);
-        });
-      }*/
     },
     mounted() {
       console.log(this.sticker);

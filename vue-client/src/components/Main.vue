@@ -35,8 +35,8 @@
 </template>
 
 <script>
-  import Boards from "./Boards";
-  import Stickers from "./Stickers";
+  import Boards from "./board/Boards";
+  import Stickers from "./sticker/Stickers";
 
   export default {
     name: "Main",

@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import StickerDataService from "../services/StickerDataService";
+  import StickerDataService from "../../services/StickerDataService";
   import Sticker from "./Sticker";
 
   export default {

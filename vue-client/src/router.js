@@ -6,12 +6,6 @@ Vue.use(Router);
 export default new Router({
   mode: "history",
   routes: [
-    /*{
-      path: "/",
-      alias: "/boards",
-      name: "boards",
-      component: () => import("./components/Boards")
-    },*/
     {
       path: "/",
       alias: "/main",
@@ -21,37 +15,37 @@ export default new Router({
     {
       path: "/boards/:id",
       name: "board-details",
-      component: () => import("./components/Board")
+      component: () => import("./components/board/Board")
     },
     {
       path: "/boards/:id/stickers",
       name: "stickers",
-      component: () => import("./components/Stickers")
+      component: () => import("./components/sticker/Stickers")
     },
     {
       path: "/addBoard",
       name: "addBoard",
-      component: () => import("./components/AddBoard")
+      component: () => import("./components/board/AddBoard")
     },
     {
       path: "/editBoard/:id",
       name: "editBoard",
-      component: () => import("./components/EditBoard")
+      component: () => import("./components/board/EditBoard")
     },
     {
       path: "/addSticker/:id",
       name: "addSticker",
-      component: () => import("./components/AddSticker")
+      component: () => import("./components/sticker/AddSticker")
     },
     {
       path: "/editSticker/:id",
       name: "editSticker",
-      component: () => import("./components/EditSticker")
+      component: () => import("./components/sticker/EditSticker")
     },
     {
       path: "/addNotes/:id",
       name: "addNotes",
-      component: () => import("./components/AddNote")
+      component: () => import("./components/note/AddNote")
     }
   ]
 });

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import NoteDataService from "../services/NoteDataService";
+  import NoteDataService from "../../services/NoteDataService";
 
   export default {
     name: "add-note",
@@ -44,10 +44,6 @@
         .catch(e => {
           console.log(e);
         });
-      },
-
-      newNote() {
-        this.note = {};
       }
     }
   };
