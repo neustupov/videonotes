@@ -1,48 +1,40 @@
 <template>
-  <div v-if="currentBoard" class="edit-form">
-    <h4>Board</h4>
-    <form>
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" id="title"
-               v-model="currentBoard.title"
-        />
+  <div class="row">
+    <div class="col-md-auto align-self-center">
+        <div class="row justify-content-md-center">
+          <a :href="'/editSticker/' + sticker.id"
+             class="btn btn-outline-primary btn-sm m-1" role="button"
+             aria-pressed="true">Edit sticker</a>
+        </div>
+        <div class="row justify-content-md-center">
+          <a :href="'/addNotes/' + sticker.id"
+             class="btn btn-outline-primary btn-sm m-1" role="button"
+             aria-pressed="true">Add note</a>
+        </div>
       </div>
-    </form>
-
-    <button class="badge badge-danger mr-2"
-            @click="deleteBoard"
-    >
-      Delete
-    </button>
-
-    <button type="submit" class="badge badge-success"
-            @click="updateBoard"
-    >
-      Update
-    </button>
-    <p>{{ message }}</p>
-  </div>
-
-  <div v-else>
-    <br />
-    <p>Please click on a Board...</p>
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        {{ sticker.title }}
+      </div>
+      <ul class="list-group list-group-flush">
+        <Notes :notes="sticker.notes"/>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
-  import BoardDataService from "../services/BoardDataService";
+  import Notes from "./Notes";
 
   export default {
-    name: "board",
+    name: "sticker",
+    props: ['sticker'],
+    components: {Notes},
     data() {
-      return {
-        currentBoard: null,
-        message: ''
-      };
+      return {};
     },
     methods: {
-      getBoard(id) {
+      /*getBoard(id) {
         BoardDataService.get(id)
         .then(response => {
           this.currentBoard = response.data;
@@ -73,18 +65,10 @@
         .catch(e => {
           console.log(e);
         });
-      }
+      }*/
     },
     mounted() {
-      this.message = '';
-      this.getBoard(this.$route.params.id);
+      console.log(this.sticker);
     }
   };
 </script>
-
-<style>
-  .edit-form {
-    max-width: 300px;
-    margin: auto;
-  }
-</style>

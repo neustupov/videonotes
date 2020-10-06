@@ -1,14 +1,14 @@
 <template>
   <div class="submit-form">
     <div class="form-group">
-      <label for="title">Title</label>
+      <label for="description">Description</label>
       <input
           type="text"
           class="form-control"
-          id="title"
+          id="description"
           required
-          v-model="note.title"
-          name="title"
+          v-model="note.description"
+          name="description"
       />
     </div>
     <button @click="saveNote" class="btn btn-success">Submit</button>
@@ -24,7 +24,7 @@
       return {
         note: {
           id: null,
-          title: "",
+          description: "",
           stickerId: null
         }
       };
@@ -32,7 +32,7 @@
     methods: {
       saveNote() {
         var data = {
-          title: this.note.title,
+          description: this.note.description,
           stickerId: this.$route.params.id
         };
 

@@ -4,7 +4,6 @@
       <div class="row">
         <div class="col-md-auto align-self-center">
           <div class="row justify-content-md-center">
-            <!--<button @click="this.BoardDataService.create" type="button" class="btn btn-outline-primary">Add board</button>-->
             <a href="/addBoard" class="btn btn-outline-primary btn-sm m-1" role="button"
                aria-pressed="true">Add board</a>
           </div>

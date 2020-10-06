@@ -1,69 +1,30 @@
 <template>
   <div class="list row">
     <div class="col-md-auto align-self-center">
-      <div v-if="currentSticker">
-        <div class="row justify-content-md-center">
-          <a :href="'/editSticker/' + currentSticker.id"
-             class="btn btn-outline-primary btn-sm m-1" role="button"
-             aria-pressed="true">Edit sticker</a>
-        </div>
-        <div class="row justify-content-md-center">
-          <a :href="'/addNotes/' + currentSticker.id"
-             class="btn btn-outline-primary btn-sm m-1" role="button"
-             aria-pressed="true">Add note</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-auto align-self-center">
       <h4>Stickers</h4>
       <div v-if="stickers">
         <ul class="list-group">
           <li class="list-group-item"
-              :class="{ active: index === currentIndex }"
               v-for="(sticker, index) in stickers"
               :key="index"
               @click="setActiveSticker(sticker, index)"
           >
-            <div class="card" style="width: 18rem;">
-              <div class="card-header">
-                {{ sticker.title }}
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">One</li>
-                <li class="list-group-item">Two</li>
-                <li class="list-group-item">Three</li>
-              </ul>
-            </div>
+            <Sticker :sticker='sticker'/>
           </li>
         </ul>
       </div>
     </div>
-    <!--<div class="col-md-6">
-      <div v-if="currentSticker">
-        <h4>Sticker</h4>
-        <div>
-          <label><strong>Title:</strong></label> {{ currentSticker.title }}
-        </div>
-        <a class="badge badge-warning"
-           :href="'/stickers/' + currentSticker.id"
-        >
-          Edit
-        </a>
-      </div>
-    </div>-->
   </div>
 </template>
 
 <script>
   import StickerDataService from "../services/StickerDataService";
-  /*import AddSticker from "./AddSticker";*/
+  import Sticker from "./Sticker";
 
   export default {
-    /*components: {
-      AddSticker
-    },*/
     name: "stickers-list",
     props: ['currentBoard'],
+    components: {Sticker},
     watch: {
       currentBoard: function (newVal, oldVal) {
         console.log('Prop changed: ', newVal, ' | was: ', oldVal);
@@ -95,7 +56,6 @@
       },
 
       refreshList() {
-        console.log('refreshList - ' + this.currentBoardId);
         this.currentSticker = null;
         this.currentIndex = -1;
         return this.fetchData();
@@ -104,12 +64,10 @@
       setActiveSticker(sticker, index) {
         this.currentSticker = sticker;
         this.currentIndex = index;
-        console.log('setActiveSticker - ' + this.currentSticker.id);
       }
     },
 
     mounted() {
-      console.log('mounted fetchData' + this.currentBoardId);
       this.fetchData();
     }
   }

@@ -25,7 +25,8 @@ public class Note extends BaseModel{
   @ManyToMany
   private List<Video> videos;
 
-  public Note(String description) {
+  public Note(String description, Sticker sticker) {
     this.description = description;
+    this.sticker = sticker;
   }
 }
