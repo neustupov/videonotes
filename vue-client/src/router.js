@@ -43,8 +43,8 @@ export default new Router({
       component: () => import("./components/sticker/EditSticker")
     },
     {
-      path: "/addNotes/:id",
-      name: "addNotes",
+      path: "/addNote/:id",
+      name: "addNote",
       component: () => import("./components/note/AddNote")
     }
   ]

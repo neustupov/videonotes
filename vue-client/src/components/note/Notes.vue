@@ -35,6 +35,9 @@
       setActiveNote(note, index) {
         this.currentNote = note;
         this.currentIndex = index;
+        this.$emit('set-current-note', {
+          note: note
+        })
       }
     }
   }
