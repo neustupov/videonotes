@@ -11,10 +11,12 @@
            class="btn btn-outline-primary btn-sm m-1" role="button"
            aria-pressed="true">Add note</a>
       </div>
-      <div class="row justify-content-md-center">
-        <a :href="'/editNote/' + currentNote.id"
-           class="btn btn-outline-primary btn-sm m-1" role="button"
-           aria-pressed="true">Add note</a>
+      <div v-if="currentNote">
+        <div class="row justify-content-md-center">
+          <a :href="'/editNote/' + currentNote.note.id"
+             class="btn btn-outline-primary btn-sm m-1" role="button"
+             aria-pressed="true">Edit note</a>
+        </div>
       </div>
     </div>
     <div class="card" style="width: 18rem;">
@@ -40,12 +42,14 @@
         currentNote: null
       };
     },
-    methods: {},
+    methods: {
+      setCurrentNote(note) {
+        this.currentNote = note;
+        console.log(note)
+      }
+    },
     mounted() {
       console.log(this.sticker);
-    },
-    setCurrentNote(note) {
-      this.currentNote = note;
     }
   };
 </script>

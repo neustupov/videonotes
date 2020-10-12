@@ -46,6 +46,11 @@ export default new Router({
       path: "/addNote/:id",
       name: "addNote",
       component: () => import("./components/note/AddNote")
+    },
+    {
+      path: "/editNote/:id",
+      name: "editNote",
+      component: () => import("./components/note/EditNote")
     }
   ]
 });
