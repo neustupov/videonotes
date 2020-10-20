@@ -19,6 +19,7 @@
 
 <script>
   import Note from "./Note";
+  import VideoDataService from "../../services/VideoDataService";
 
   export default {
     name: "Notes",
@@ -35,6 +36,7 @@
       setActiveNote(note, index) {
         this.currentNote = note;
         this.currentIndex = index;
+        VideoDataService.getAll();
         console.log("Set active note");
         this.$emit('set-current-note', {
           note: note

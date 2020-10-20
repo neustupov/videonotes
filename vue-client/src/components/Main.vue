@@ -29,6 +29,9 @@
         <div class="col-md-auto align-self-center">
           <Stickers :current-board='currentBoard'/>
         </div>
+        <div class="col-md-auto align-self-center">
+          <Videos/>
+        </div>
       </div>
     </div>
   </div>
@@ -37,10 +40,11 @@
 <script>
   import Boards from "./board/Boards";
   import Stickers from "./sticker/Stickers";
+  import Videos from "./video/Videos";
 
   export default {
     name: "Main",
-    components: {Boards, Stickers},
+    components: {Videos, Boards, Stickers},
     data() {
       return {
         currentBoard: null
